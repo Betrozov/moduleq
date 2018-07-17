@@ -4,15 +4,12 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   fileinclude = require('gulp-file-include'),
   connect = require('gulp-connect'),
-  shorthand = require('gulp-shorthand'),
-  autoprefixer = require('gulp-autoprefixer'),
-  minifyCSS = require('gulp-minify-css');
+  autoprefixer = require('gulp-autoprefixer');
 
 
 var scss_path = ['scss/*.scss', 'scss/*/*.scss'],
   inc_file = 'template/*.html',
   template_file = 'template/include/*.html',
-  img_file = 'images/*',
   img_file_sprite = 'images/icon/*.*';
 
 
@@ -32,8 +29,6 @@ gulp.task('scss', function () {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    //.pipe(shorthand())
-    //.pipe(minifyCSS())
     .pipe(gulp.dest('css/'))
     .pipe(connect.reload());
 });
